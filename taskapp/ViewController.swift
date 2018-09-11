@@ -13,15 +13,14 @@ class ViewController: UIViewController,
     let realm = try! Realm()
     var taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: false)
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate   = self
         tableView.dataSource = self
-        
         searchBar.delegate   = self
+        
+        self.navigationItem.hidesBackButton = true
     }
 
     override func didReceiveMemoryWarning() {
