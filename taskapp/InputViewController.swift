@@ -8,10 +8,20 @@ class InputViewController: UIViewController {
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var contentsTextView: UITextView!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBAction func doneButton(_ sender: Any) {
+        try! realm.write {
+            self.task.title    = self.titleTextField.text!
+            self.task.category = self.categoryTextField.text!
+            self.task.contents = self.contentsTextView.text
+            self.task.date     = self.datePicker.date
+            self.realm.add(self.task, update: true)
+        }
+        setNotification(task: task)
+        performSegue(withIdentifier: "doneBack", sender: nil)
+    }
     
     var task: Task!
     let realm = try! Realm()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,14 +41,6 @@ class InputViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        try! realm.write {
-            self.task.title    = self.titleTextField.text!
-            self.task.category = self.categoryTextField.text!
-            self.task.contents = self.contentsTextView.text
-            self.task.date     = self.datePicker.date
-            self.realm.add(self.task, update: true)
-        }
-        setNotification(task: task)
         super.viewWillDisappear(animated)
     }
     
