@@ -130,8 +130,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="カテゴリーを入力して下さい" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z6M-SY-HRc">
-                                <rect key="frame" x="10" y="176" width="355" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="カテゴリーを入力して下さい" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z6M-SY-HRc">
+                                <rect key="frame" x="10" y="176" width="314" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -142,15 +142,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJk-F6-oyI">
+                                <rect key="frame" x="334" y="176" width="31" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="31" id="oZI-cl-jSa"/>
+                                </constraints>
+                                <state key="normal" title="追加"/>
+                                <connections>
+                                    <segue destination="zNr-7a-e77" kind="show" identifier="addCategory" id="DdU-MD-hVg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="z6M-SY-HRc" firstAttribute="top" secondItem="qrH-OT-k8T" secondAttribute="bottom" constant="10" id="2NR-Vl-84N"/>
+                            <constraint firstItem="ZJk-F6-oyI" firstAttribute="top" secondItem="z6M-SY-HRc" secondAttribute="top" id="3TO-vJ-scc"/>
+                            <constraint firstItem="14E-Z9-rMC" firstAttribute="trailing" secondItem="ZJk-F6-oyI" secondAttribute="trailing" constant="10" id="7TQ-Xc-huG"/>
                             <constraint firstItem="Yfg-jQ-6kg" firstAttribute="top" secondItem="14E-Z9-rMC" secondAttribute="top" constant="10" id="AyU-Oo-wZ7"/>
                             <constraint firstAttribute="trailing" secondItem="Y6o-3g-30G" secondAttribute="trailing" id="DOy-1o-AOR"/>
                             <constraint firstItem="fbA-oC-tlb" firstAttribute="leading" secondItem="14E-Z9-rMC" secondAttribute="leading" constant="10" id="Dgl-SR-igi"/>
                             <constraint firstAttribute="trailing" secondItem="fbA-oC-tlb" secondAttribute="trailing" constant="10" id="FJp-aZ-jZB"/>
                             <constraint firstItem="Y6o-3g-30G" firstAttribute="top" secondItem="HvQ-2g-bn4" secondAttribute="bottom" constant="10" id="JRG-jo-kPY"/>
+                            <constraint firstItem="ZJk-F6-oyI" firstAttribute="bottom" secondItem="z6M-SY-HRc" secondAttribute="bottom" id="NUJ-Ih-f4B"/>
                             <constraint firstItem="14E-Z9-rMC" firstAttribute="trailing" secondItem="qrH-OT-k8T" secondAttribute="trailing" constant="10" id="URX-G0-dr4"/>
                             <constraint firstItem="Yfg-jQ-6kg" firstAttribute="leading" secondItem="14E-Z9-rMC" secondAttribute="leading" constant="10" id="Wgp-Aq-JdV"/>
                             <constraint firstItem="Y6o-3g-30G" firstAttribute="leading" secondItem="14E-Z9-rMC" secondAttribute="leading" id="XNH-ax-zxy"/>
@@ -160,8 +173,8 @@
                             <constraint firstItem="14E-Z9-rMC" firstAttribute="trailing" secondItem="HvQ-2g-bn4" secondAttribute="trailing" constant="10" id="hoz-cu-4i2"/>
                             <constraint firstItem="z6M-SY-HRc" firstAttribute="leading" secondItem="14E-Z9-rMC" secondAttribute="leading" constant="10" id="jPK-Vz-Ehp"/>
                             <constraint firstItem="qrH-OT-k8T" firstAttribute="leading" secondItem="14E-Z9-rMC" secondAttribute="leading" constant="10" id="lrS-mA-G6E"/>
-                            <constraint firstItem="14E-Z9-rMC" firstAttribute="trailing" secondItem="z6M-SY-HRc" secondAttribute="trailing" constant="10" id="o13-Le-g8R"/>
                             <constraint firstItem="HvQ-2g-bn4" firstAttribute="leading" secondItem="14E-Z9-rMC" secondAttribute="leading" constant="10" id="swN-hk-eLC"/>
+                            <constraint firstItem="ZJk-F6-oyI" firstAttribute="leading" secondItem="z6M-SY-HRc" secondAttribute="trailing" constant="10" id="tUx-mb-dhg"/>
                             <constraint firstItem="14E-Z9-rMC" firstAttribute="trailing" secondItem="DOb-cz-r1V" secondAttribute="trailing" constant="10" id="twC-ZZ-GMv"/>
                             <constraint firstItem="HvQ-2g-bn4" firstAttribute="top" secondItem="fbA-oC-tlb" secondAttribute="bottom" constant="10" id="v4d-X8-0K0"/>
                             <constraint firstItem="14E-Z9-rMC" firstAttribute="trailing" secondItem="Yfg-jQ-6kg" secondAttribute="trailing" constant="10" id="vX8-wO-YY4"/>
@@ -189,6 +202,48 @@
             </objects>
             <point key="canvasLocation" x="1522" y="-663"/>
         </scene>
+        <!--Add Category View Controller-->
+        <scene sceneID="F34-0t-Dax">
+            <objects>
+                <viewController id="zNr-7a-e77" customClass="addCategoryViewController" customModule="taskapp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CNG-Xd-Qa6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgB-DT-k65">
+                                <rect key="frame" x="100" y="304" width="175" height="30"/>
+                                <state key="normal" title="追加"/>
+                                <connections>
+                                    <action selector="addButton:" destination="zNr-7a-e77" eventType="touchUpInside" id="4Fm-BJ-sxa"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="カテゴリを入力して下さい" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9g0-VG-Gvy">
+                                <rect key="frame" x="80" y="264" width="215" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ecf-FD-ASk" firstAttribute="trailing" secondItem="9g0-VG-Gvy" secondAttribute="trailing" constant="80" id="3By-8b-bs5"/>
+                            <constraint firstItem="9g0-VG-Gvy" firstAttribute="top" secondItem="ecf-FD-ASk" secondAttribute="top" constant="200" id="MYw-Po-ebC"/>
+                            <constraint firstItem="ecf-FD-ASk" firstAttribute="trailing" secondItem="hgB-DT-k65" secondAttribute="trailing" constant="100" id="dhT-pt-AFf"/>
+                            <constraint firstItem="hgB-DT-k65" firstAttribute="top" secondItem="9g0-VG-Gvy" secondAttribute="bottom" constant="10" id="ezI-vP-1JD"/>
+                            <constraint firstItem="9g0-VG-Gvy" firstAttribute="leading" secondItem="ecf-FD-ASk" secondAttribute="leading" constant="80" id="pi8-Zg-Yf4"/>
+                            <constraint firstItem="hgB-DT-k65" firstAttribute="leading" secondItem="ecf-FD-ASk" secondAttribute="leading" constant="100" id="pj9-ci-fW1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ecf-FD-ASk"/>
+                    </view>
+                    <connections>
+                        <outlet property="categoryTextField" destination="9g0-VG-Gvy" id="Yw8-yG-wCV"/>
+                        <segue destination="22J-C1-qj3" kind="show" identifier="backInputviewController" id="9hg-as-s4W"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sYa-LK-VKM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2217" y="-663"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="N5O-gD-eG3">
             <objects>
@@ -209,7 +264,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="by8-Wz-V6e"/>
+        <segue reference="9hg-as-s4W"/>
         <segue reference="Qga-NE-Ua9"/>
     </inferredMetricsTieBreakers>
 </document>

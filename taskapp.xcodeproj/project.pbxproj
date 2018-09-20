@@ -15,6 +15,8 @@
 		F66E744D214475E2009A53DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F66E744C214475E2009A53DB /* Assets.xcassets */; };
 		F66E7450214475E2009A53DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F66E744E214475E2009A53DB /* LaunchScreen.storyboard */; };
 		F66E7458214479C8009A53DB /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66E7457214479C8009A53DB /* InputViewController.swift */; };
+		F6CF4F17214FCA12007F4F6E /* addCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CF4F16214FCA12007F4F6E /* addCategoryViewController.swift */; };
+		F6CF4F19214FCC50007F4F6E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CF4F18214FCC50007F4F6E /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		F66E744F214475E2009A53DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F66E7451214475E2009A53DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F66E7457214479C8009A53DB /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		F6CF4F16214FCA12007F4F6E /* addCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addCategoryViewController.swift; sourceTree = "<group>"; };
+		F6CF4F18214FCC50007F4F6E /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +89,9 @@
 				F66E7445214475DF009A53DB /* AppDelegate.swift */,
 				F66E7447214475DF009A53DB /* ViewController.swift */,
 				F66E7457214479C8009A53DB /* InputViewController.swift */,
+				F6CF4F16214FCA12007F4F6E /* addCategoryViewController.swift */,
 				F63EAB8E21447F730022B97B /* Task.swift */,
+				F6CF4F18214FCC50007F4F6E /* Category.swift */,
 				F66E7449214475DF009A53DB /* Main.storyboard */,
 				F66E744C214475E2009A53DB /* Assets.xcassets */,
 				F66E744E214475E2009A53DB /* LaunchScreen.storyboard */,
@@ -211,7 +217,9 @@
 				F63EAB8F21447F730022B97B /* Task.swift in Sources */,
 				F66E7458214479C8009A53DB /* InputViewController.swift in Sources */,
 				F66E7448214475DF009A53DB /* ViewController.swift in Sources */,
+				F6CF4F17214FCA12007F4F6E /* addCategoryViewController.swift in Sources */,
 				F66E7446214475DF009A53DB /* AppDelegate.swift in Sources */,
+				F6CF4F19214FCC50007F4F6E /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
