@@ -149,7 +149,7 @@
                                 </constraints>
                                 <state key="normal" title="追加"/>
                                 <connections>
-                                    <segue destination="zNr-7a-e77" kind="show" identifier="addCategory" id="DdU-MD-hVg"/>
+                                    <action selector="addCategory:" destination="22J-C1-qj3" eventType="touchUpInside" id="y8a-ab-U9h"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -196,6 +196,7 @@
                         <outlet property="datePicker" destination="Y6o-3g-30G" id="K7c-gO-gMZ"/>
                         <outlet property="titleTextField" destination="DOb-cz-r1V" id="sAo-Xl-5Fk"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="doneBack" id="Qga-NE-Ua9"/>
+                        <segue destination="zNr-7a-e77" kind="show" identifier="addCategory" id="fQi-Uf-xbY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fvV-o8-5YW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -205,7 +206,7 @@
         <!--Add Category View Controller-->
         <scene sceneID="F34-0t-Dax">
             <objects>
-                <viewController id="zNr-7a-e77" customClass="addCategoryViewController" customModule="taskapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addCategory" id="zNr-7a-e77" customClass="addCategoryViewController" customModule="taskapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CNG-Xd-Qa6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -223,13 +224,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xyq-1L-Im1">
+                                <rect key="frame" x="100" y="344" width="175" height="30"/>
+                                <state key="normal" title="戻る"/>
+                                <connections>
+                                    <action selector="backButton:" destination="zNr-7a-e77" eventType="touchUpInside" id="EKC-2a-66n"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ecf-FD-ASk" firstAttribute="trailing" secondItem="9g0-VG-Gvy" secondAttribute="trailing" constant="80" id="3By-8b-bs5"/>
                             <constraint firstItem="9g0-VG-Gvy" firstAttribute="top" secondItem="ecf-FD-ASk" secondAttribute="top" constant="200" id="MYw-Po-ebC"/>
+                            <constraint firstItem="Xyq-1L-Im1" firstAttribute="leading" secondItem="hgB-DT-k65" secondAttribute="leading" id="XPB-p9-0np"/>
                             <constraint firstItem="ecf-FD-ASk" firstAttribute="trailing" secondItem="hgB-DT-k65" secondAttribute="trailing" constant="100" id="dhT-pt-AFf"/>
                             <constraint firstItem="hgB-DT-k65" firstAttribute="top" secondItem="9g0-VG-Gvy" secondAttribute="bottom" constant="10" id="ezI-vP-1JD"/>
+                            <constraint firstItem="Xyq-1L-Im1" firstAttribute="top" secondItem="hgB-DT-k65" secondAttribute="bottom" constant="10" id="f5C-Os-eEw"/>
+                            <constraint firstItem="Xyq-1L-Im1" firstAttribute="trailing" secondItem="hgB-DT-k65" secondAttribute="trailing" id="kSp-k0-Ogc"/>
                             <constraint firstItem="9g0-VG-Gvy" firstAttribute="leading" secondItem="ecf-FD-ASk" secondAttribute="leading" constant="80" id="pi8-Zg-Yf4"/>
                             <constraint firstItem="hgB-DT-k65" firstAttribute="leading" secondItem="ecf-FD-ASk" secondAttribute="leading" constant="100" id="pj9-ci-fW1"/>
                         </constraints>
@@ -264,7 +275,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="by8-Wz-V6e"/>
+        <segue reference="9hg-as-s4W"/>
         <segue reference="Qga-NE-Ua9"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -16,6 +16,7 @@ class InputViewController: UIViewController,
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var contentsTextView: UITextView!
     @IBOutlet weak var datePicker: UIDatePicker!
+    
     @IBAction func doneButton(_ sender: Any) {
         try! realm.write {
             self.task.title    = self.titleTextField.text!
@@ -26,6 +27,20 @@ class InputViewController: UIViewController,
         }
         setNotification(task: task)
         performSegue(withIdentifier: "doneBack", sender: nil)
+    }
+    
+    @IBAction func addCategory(_ sender: Any) {
+        try! realm.write {
+            self.task.title    = self.titleTextField.text!
+            self.task.category = self.categoryTextField.text!
+            self.task.contents = self.contentsTextView.text
+            self.task.date     = self.datePicker.date
+            self.realm.add(self.task, update: true)
+        }
+        let storyboard: UIStoryboard = self.storyboard!
+        
+        let addCategory = storyboard.instantiateViewController(withIdentifier: "addCategory")
+        present(addCategory, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -61,20 +76,6 @@ class InputViewController: UIViewController,
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addCategory" {
-            try! realm.write {
-                self.task.title    = self.titleTextField.text!
-                self.task.category = self.categoryTextField.text!
-                self.task.contents = self.contentsTextView.text
-                self.task.date     = self.datePicker.date
-                self.realm.add(self.task, update: true)
-            }
-            let addCategoryViewController: addCategoryViewController = segue.destination as! addCategoryViewController
-            addCategoryViewController.id = task.id
-        }
     }
     
     @objc func dismissKeyboad() {

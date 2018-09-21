@@ -12,6 +12,11 @@ class addCategoryViewController: UIViewController {
     @IBOutlet weak var categoryTextField: UITextField!
     
     @IBAction func addButton(_ sender: Any) {
+        if self.categoryTextField!.text == "" {
+            dismiss(animated: true, completion: nil)
+            return
+        }
+        
         let category = Category()
         let allCategories = try! Realm().objects(Category.self)
         if allCategories.count != 0 {
@@ -21,7 +26,12 @@ class addCategoryViewController: UIViewController {
             category.category = self.categoryTextField.text!
             self.realm.add(category, update: true)
         }
-        performSegue(withIdentifier: "backInputviewController", sender: nil)
+        //performSegue(withIdentifier: "backInputviewController", sender: nil)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func backButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -33,15 +43,6 @@ class addCategoryViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        for task in taskArray {
-            if task.id == id {
-                let inputViewController: InputViewController = segue.destination as! InputViewController
-                inputViewController.task = task
-            }
-        }
     }
 
 }
