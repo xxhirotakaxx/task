@@ -9,7 +9,6 @@ class InputViewController: UIViewController,
     let realm = try! Realm()
     var categoryArray = try! Realm().objects(Category.self)
     var task: Task!
-    
     let categoryPicker = UIPickerView()
     
     @IBOutlet weak var titleTextField: UITextField!

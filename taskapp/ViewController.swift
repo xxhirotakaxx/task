@@ -5,12 +5,16 @@ import UserNotifications
 class ViewController: UIViewController,
                       UITableViewDelegate,
                       UITableViewDataSource,
-                      UISearchBarDelegate{
+                      UIPickerViewDelegate,
+                      UIPickerViewDataSource,
+                      UITextFieldDelegate{
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchTextField: UITextField!
     
+    let searchPicker = UIPickerView()
     let realm = try! Realm()
+    var categoryArray = try! Realm().objects(Category.self)
     var taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: false)
     
     override func viewDidLoad() {
@@ -18,7 +22,13 @@ class ViewController: UIViewController,
         
         tableView.delegate   = self
         tableView.dataSource = self
-        searchBar.delegate   = self
+        
+        searchPicker.dataSource = self
+        searchPicker.delegate   = self
+        
+        searchTextField.delegate        = self
+        searchTextField.inputView       = searchPicker
+        searchTextField.clearButtonMode = .always
         
         self.navigationItem.hidesBackButton = true
     }
@@ -100,14 +110,33 @@ class ViewController: UIViewController,
         }
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText == "" {
-            taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: false)
-        } else {
-            let predicate = NSPredicate(format: "category == %@", searchText)
-            taskArray = realm.objects(Task.self).filter(predicate)
-        }
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categoryArray.count
+    }
+    
+    func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categoryArray[row].category
+    }
+    
+    func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let selectedCategory: String = categoryArray[row].category
+        searchTextField.text = selectedCategory
+        let predicate = NSPredicate(format: "category == %@", selectedCategory)
+        taskArray = realm.objects(Task.self).filter(predicate)
+        view.endEditing(true)
         tableView.reloadData()
     }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: false)
+        searchTextField.text = ""
+        tableView.reloadData()
+        return false
+    }
+    
 }
 
