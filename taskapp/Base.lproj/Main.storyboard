@@ -206,7 +206,7 @@
         <!--Add Category View Controller-->
         <scene sceneID="F34-0t-Dax">
             <objects>
-                <viewController storyboardIdentifier="addCategory" id="zNr-7a-e77" customClass="addCategoryViewController" customModule="taskapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addCategory" id="zNr-7a-e77" customClass="AddCategoryViewController" customModule="taskapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CNG-Xd-Qa6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

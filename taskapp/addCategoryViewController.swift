@@ -1,7 +1,7 @@
 import UIKit
 import RealmSwift
 
-class addCategoryViewController: UIViewController {
+class AddCategoryViewController: UIViewController {
     
     var category: Category!
     var taskArray = try! Realm().objects(Task.self)
